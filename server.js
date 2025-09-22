@@ -34,6 +34,12 @@ io.on('connection', (socket) => {
     io.emit('vehiculos', msg);
   });
 
+  // Escuchar mensajes del modelo
+  socket.on('modelo', (msg) => io.emit('modelo', msg))
+
+  // escuchar empresas
+  socket.on('empresa', (msg) => io.emit('empresa', msg))
+
   // Manejar desconexión
   socket.on('disconnect', () => {
     console.log('Un usuario se ha desconectado');
