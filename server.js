@@ -19,27 +19,20 @@ app.get('/', (req, res) => {
 // Manejar conexiones de Socket.IO
 io.on('connection', (socket) => {
   console.log('Un usuario se ha conectado');
-
   // Escuchar mensajes del cliente
   socket.on('cliente', (msg) => {
-    console.log('cliente', msg);
-    
     // Emitir el mensaje a todos los clientes conectados
     io.emit('cliente', msg);
   });
-
   // Escuchar mensajes del vehiculos
-  socket.on('vehiculos', (msg) => {
+  socket.on('vehiculo', (msg) => {
     // Emitir el mensaje a todos los vehiculoss conectados
-    io.emit('vehiculos', msg);
+    io.emit('vehiculo', msg);
   });
-
   // Escuchar mensajes del modelo
   socket.on('modelo', (msg) => io.emit('modelo', msg))
-
   // escuchar empresas
   socket.on('empresa', (msg) => io.emit('empresa', msg))
-
   // Manejar desconexión
   socket.on('disconnect', () => {
     console.log('Un usuario se ha desconectado');
