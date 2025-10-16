@@ -31,6 +31,14 @@ io.on('connection', (socket) => {
   });
   // Escuchar mensajes del modelo
   socket.on('modelo', (msg) => io.emit('modelo', msg))
+  // Escuchar mensajes del gasto operacion
+  socket.on('gastos_operacion', (msg) => io.emit('gastos_operacion', msg))
+  // Escuchar mensajes del gasto orden
+  socket.on('gastos_orden', (msg) => io.emit('gastos_orden', msg))
+  // Escuchar mensajes del pagos orden
+  socket.on('pagos_orden', (msg) => io.emit('pagos_orden', msg))
+  // Escuchar mensajes del gasto operacion
+  socket.on('gastos_operacion', (msg) => io.emit('gastos_operacion', msg))
   // escuchar empresas
   socket.on('empresa', (msg) => io.emit('empresa', msg))
   // Manejar desconexión
