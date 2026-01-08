@@ -7,6 +7,7 @@
   <ul id="messages"></ul>
   <form id="form" action="">
     <input id="input" autocomplete="off" /><button>Enviar</button>
+    <!-- <input id="input" autocomplete="off" /><button>Enviar</button> -->
   </form>
 
   <script src="/socket.io/socket.io.js"></script>
@@ -14,9 +15,9 @@
     const socket = io();
 
     // Escuchar mensajes del servidor
-    socket.on('cliente', (msg) => {
+    socket.on('actualizacion', (msg) => {
       const item = document.createElement('li');
-      item.textContent = msg.id_cliente;
+      item.textContent = Date.now();
       document.getElementById('messages').appendChild(item);
       window.scrollTo(0, document.body.scrollHeight);
     });
@@ -26,9 +27,11 @@
     const input = document.getElementById('input');
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (input.value) {
-        socket.emit('cliente', {id_cliente:9, nombre: 'jose'});
-        input.value = '';
+      console.log(input.value === 'actualizacion');
+      
+      if (input.value === 'actualizacion') {
+        socket.emit('actualizacion', true);
+        // input.value = '';
       }
     });
   </script>

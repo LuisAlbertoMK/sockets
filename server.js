@@ -41,6 +41,7 @@ io.on('connection', (socket) => {
   socket.on('gastos_operacion', (msg) => io.emit('gastos_operacion', msg))
   // escuchar empresas
   socket.on('empresa', (msg) => io.emit('empresa', msg))
+  socket.on('actualizacion', (msg) => io.emit('actualizacion', true))
   // Manejar desconexión
   socket.on('disconnect', () => {
     console.log('Un usuario se ha desconectado');
