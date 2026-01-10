@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server,{
   cors: {
-    origin: ['https://apputos.app','http://localhost:4200','https://speed-pro-desarrollo.web.app'], // URL de tu app Angular
+    origin: ['https://speed-329ca.web.app','https://apputos.app','http://localhost:4200','https://speed-pro-desarrollo.web.app'], // URL de tu app Angular
     methods: ['GET', 'POST']
   }
 });
